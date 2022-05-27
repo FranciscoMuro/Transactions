@@ -13,8 +13,9 @@ def readCsv(request):
     if not file.name.endswith('.csv'):
         messages.error(request, 'is not a csv data source')
     csv = pd.read_csv(file)
-
-
+    totalBalance = util.getTotalBalance(csv['Transaction'])
+    averageOfTransactions = util.getAverageOfTransactions(csv['Transaction'])
+    transactionByMoth = util.getTransactionByMoth(csv['Date'])
     return render(request, template, {})
 
 
