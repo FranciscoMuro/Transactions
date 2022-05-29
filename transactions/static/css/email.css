@@ -1,0 +1,18 @@
+.pricipal_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.card_wrapper{
+    display: flex;
+    justify-content: center;
+
+    height: 350px;
+    width: 800px;
+
+    padding: 20px;
+    margin: 60px 0;
+    border: 1px solid #dfe1e6;
+    box-shadow: 0px 1px 1px rgba(0, 94, 255, 0.25);
+    border-radius: 3px;
+}

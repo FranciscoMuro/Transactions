@@ -1,0 +1,18 @@
+{% load static %}
+{% block content %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static  'css/email.css' %}">
+{% endblock extrahead %}
+<div class="pricipal_wrapper">
+    <div class="card_wrapper">
+        <p>Total balance is {{totalBalance}}</p>
+        {% for month, cuantity in transactionByMoth %}
+            <p>Number of transactions in {{month}}: {{cuantity}}</p>    
+        {% endfor %}    
+
+        {% for type, amount in averageOfTransactions.items %}
+            <p>Avarage {{type}} amount: {{amount}} </p> 
+        {% endfor %}    
+    </div>
+</div>
+{% endblock content %}
