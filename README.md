@@ -53,3 +53,16 @@ python3 manage.py runserver
 http://127.0.0.1:8000/
 ```
 ![Image text](imgsDoc/runing-project.png)
+
+# Something extra 
+### you can use:
+```
+cd prject_folder/
+
+python manage.py createsuperuser
+```
+### to create a super user and see the admin page of django and see the data saved in the db.
+### just go to:
+```
+http://127.0.0.1:8000/admin
+```
