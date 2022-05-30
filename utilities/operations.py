@@ -13,8 +13,8 @@ def getTotalBalance(transactions):
 def getAverageOfTransactions(transactions):
     typeTransactions = getTypeOfTransaction(transactions)
     averageOfTransactions = {
-        'debit': average(typeTransactions.get('debit')),
-        'credit': average(typeTransactions.get('credit'))
+        'debit': round(average(typeTransactions.get('debit')),3),
+        'credit': round(average(typeTransactions.get('credit')),3)
     }
     return averageOfTransactions
 

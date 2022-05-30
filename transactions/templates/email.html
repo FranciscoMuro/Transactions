@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static  'css/email.css' %}">
+{% endblock extrahead %}
+{% if messages %}
+        {% for message in messages %}
+        <div style="text-align: center; " class="alert alert-{% if message.tags == 'warning' %}warning {% else %}success{% endif %} fade show"
+            role="alert">
+            <strong style="color: black;">{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+{% endif %}
+<div class="principal_wrapper">
+    <div class="card_wrapper">
+        <div class="title">
+            <h4>Just sended you this information by email</h4>
+        </div>
+        <div class="subject">
+            <h6>
+                Summary of your transactions:
+            </h6>
+        </div>
+        <div class="content_card">
+            <div class="firstColumn">
+                <p>Total balance is {{totalBalance}}</p>
+                {% for month, quantity in transactionByMoth %}
+                    <p>Number of transactions in {{month}}: {{quantity}}</p>
+                {% endfor %}
+            </div>
+            <div class="secondColumn">
+                {% for type, amount in averageOfTransactions.items %}
+                    <p>Average {{type}} amount: {{amount}} </p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="company_logo">
+            <img src="{% static 'logos/stori-logo.jpg' %}" alt="Stori's logo">
+        </div>
+    </div>
+    <a href="{% url 'transactions:readCsv' %}" class="btn btn-primary">
+        Accept
+    </a>
+</div>
+{% endblock content %}

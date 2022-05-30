@@ -1,5 +1,9 @@
 {% extends 'index.html' %}
+{% load static %}
 {% block content %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static  'css/uploadCsv.css' %}">
+{% endblock extrahead %}
 {% if messages %}
         {% for message in messages %}
         <div style="text-align: center; " class="alert alert-{% if message.tags == 'warning' %}warning {% else %}success{% endif %} fade show"
@@ -11,18 +15,19 @@
         </div>
         {% endfor %}
         {% endif %}
-<!-- general form elements -->
 <div class="card card-primary">
   <div class="card-header">
-    <h3 class="card-title">Get csv with transaction data</h3>
+    <h3 class="card-title">Upload csv with transaction data</h3>
   </div>
-  <!-- /.card-header -->
-  <!-- form start -->
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="card-body">
+      <label for="nameInput">Type the email of the proprietary of the transactions</label>
+      <div style="margin-bottom: 30px;">
+        <input type="text" name="proprietary" id="proprietary">
+      </div>
       <div class="form-group">
-        <label for="exampleInputFile">Select your csv</label>
+        <label for="csvinput">Select your csv</label>
         <div class="input-group">
           <div class="custom-file">
                 <input
@@ -34,12 +39,10 @@
         </div>
       </div>
     </div>
-    <!-- /.card-body -->
     <div class="card-footer">
       <button type="submit" class="btn btn-primary">Accept</button>
     </div>
   </form>
 </div>
-<!-- /.card -->
 
 {% endblock content %}
