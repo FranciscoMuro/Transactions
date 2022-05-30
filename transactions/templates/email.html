@@ -4,10 +4,26 @@
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static  'css/email.css' %}">
 {% endblock extrahead %}
+{% if messages %}
+        {% for message in messages %}
+        <div style="text-align: center; " class="alert alert-{% if message.tags == 'warning' %}warning {% else %}success{% endif %} fade show"
+            role="alert">
+            <strong style="color: black;">{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+{% endif %}
 <div class="principal_wrapper">
     <div class="card_wrapper">
         <div class="title">
             <h4>Just sended you this information by email</h4>
+        </div>
+        <div class="subject">
+            <h6>
+                Summary of your transactions:
+            </h6>
         </div>
         <div class="content_card">
             <div class="firstColumn">
