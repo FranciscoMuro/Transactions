@@ -6,7 +6,7 @@ import pandas as pd
 import utilities.operations as util
 
 def readCsv(request):
-    template = "getCSV.html"
+    template = "uploadCSV.html"
     if request.method == "GET":
         return render(request, template, {})
     file = request.FILES['transactioncsv']
@@ -22,8 +22,5 @@ def readCsv(request):
         'averageOfTransactions': averageOfTransactions,
         'transactionByMoth': transactionByMoth.items()
     }
-
     template = 'email.html'
     return render(request, template, context)
-
-
