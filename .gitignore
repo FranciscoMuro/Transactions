@@ -1,0 +1,5 @@
+.vscode/settings.json
+.vscode/symbols.json
+*.db
+*.sqlite3
+*.log
